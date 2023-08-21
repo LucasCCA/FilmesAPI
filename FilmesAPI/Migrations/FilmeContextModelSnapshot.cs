@@ -18,6 +18,45 @@ partial class FilmeContextModelSnapshot : ModelSnapshot
             .HasAnnotation("ProductVersion", "7.0.5")
             .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+        modelBuilder.Entity("FilmesAPI.Models.Cinema", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                b.Property<int>("EnderecoId")
+                    .HasColumnType("int");
+
+                b.Property<string>("Nome")
+                    .IsRequired()
+                    .HasColumnType("longtext");
+
+                b.HasKey("Id");
+
+                b.HasIndex("EnderecoId")
+                    .IsUnique();
+
+                b.ToTable("Cinemas");
+            });
+
+        modelBuilder.Entity("FilmesAPI.Models.Endereco", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                b.Property<string>("Logradouro")
+                    .IsRequired()
+                    .HasColumnType("longtext");
+
+                b.Property<int>("Numero")
+                    .HasColumnType("int");
+
+                b.HasKey("Id");
+
+                b.ToTable("Enderecos");
+            });
+
         modelBuilder.Entity("FilmesAPI.Models.Filme", b =>
             {
                 b.Property<int>("Id")
@@ -39,6 +78,23 @@ partial class FilmeContextModelSnapshot : ModelSnapshot
                 b.HasKey("Id");
 
                 b.ToTable("Filmes");
+            });
+
+        modelBuilder.Entity("FilmesAPI.Models.Cinema", b =>
+            {
+                b.HasOne("FilmesAPI.Models.Endereco", "Endereco")
+                    .WithOne("Cinema")
+                    .HasForeignKey("FilmesAPI.Models.Cinema", "EnderecoId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("Endereco");
+            });
+
+        modelBuilder.Entity("FilmesAPI.Models.Endereco", b =>
+            {
+                b.Navigation("Cinema")
+                    .IsRequired();
             });
 #pragma warning restore 612, 618
     }

@@ -50,7 +50,7 @@ public class FilmeController : ControllerBase
         )
     {
         return _mapper.Map<List<ReadFilmeDto>>(
-            _context.Filmes.Skip(skip).Take(take)
+            _context.Filmes.Skip(skip).Take(take).ToList()
             );
     }
 

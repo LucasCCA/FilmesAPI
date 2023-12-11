@@ -9,6 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("FilmeConnectio
 
 builder.Services.AddDbContext<FilmeContext>(opts =>
     opts
+    .UseLazyLoadingProxies()
     .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
     );
 

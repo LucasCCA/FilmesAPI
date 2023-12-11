@@ -60,3 +60,5 @@ X:\Projetos\.Net\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 X:\Projetos\.Net\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 X:\Projetos\.Net\FilmesAPI\FilmesAPI\bin\Debug\net6.0\FilmesAPI.xml
 X:\Projetos\.Net\FilmesAPI\FilmesAPI\obj\Debug\net6.0\FilmesAPI.xml
+X:\Projetos\.Net\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Castle.Core.dll
+X:\Projetos\.Net\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll

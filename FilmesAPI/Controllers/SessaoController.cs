@@ -42,7 +42,7 @@ public class SessaoController : ControllerBase
     public IActionResult RecuperaSessoesPorId(int filmeId, int cinemaId)
     {
         Sessao sessao = _context.Sessoes.FirstOrDefault(sessao => 
-        sessao.FilmeId == filmeId && sessao.CinemaId == cinemaId
+            sessao.FilmeId == filmeId && sessao.CinemaId == cinemaId
         );
 
         if (sessao != null)

@@ -40,7 +40,7 @@ public class FilmeController : ControllerBase
             nameof(RecuperaFilmePorId),
             new { id = filme.Id },
             filme
-            );
+        );
     }
 
     [HttpGet]
@@ -48,19 +48,19 @@ public class FilmeController : ControllerBase
         [FromQuery] int skip = 0, 
         [FromQuery] int take = 10,
         [FromQuery] string? nomeCinema = null
-        )
+    )
     {
         if(nomeCinema == null)
             return _mapper.Map<List<ReadFilmeDto>>(
                 _context.Filmes.Skip(skip).Take(take).ToList()
-                );
+            );
         return _mapper.Map<List<ReadFilmeDto>>(
                 _context.Filmes.Skip(skip).Take(take).Where(
                     filme => filme.Sessoes.Any(
                         sessao => sessao.Cinema.Nome == nomeCinema
-                        )
-                    ).ToList()
-                );
+                    )
+                ).ToList()
+        );
     }
 
     [HttpGet("{id}")]
@@ -80,7 +80,7 @@ public class FilmeController : ControllerBase
     public IActionResult AtualizaFilme(
         int id, 
         [FromBody] UpdateFilmeDto filmeDto
-        )
+    )
     {
         var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
 
@@ -96,7 +96,7 @@ public class FilmeController : ControllerBase
     public IActionResult AtualizaFilmeParcial(
         int id, 
         JsonPatchDocument<UpdateFilmeDto> patch
-        )
+    )
     {
         var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
 

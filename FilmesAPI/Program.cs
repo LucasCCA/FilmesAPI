@@ -11,7 +11,7 @@ builder.Services.AddDbContext<FilmeContext>(opts =>
     opts
     .UseLazyLoadingProxies()
     .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-    );
+);
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
